@@ -1,0 +1,46 @@
+{
+  "entry": "src/index.js",
+  "outputPath":"server/dist",
+  "proxy": {
+    "/api":{
+      "target": "http://localhost:16024/"
+    }
+  },
+  "env": {
+    "development": {
+      "extraBabelPlugins": [
+        "dva-hmr",
+        "transform-runtime",
+        ["module-resolver", {
+          "root":["./src"],
+          "alias": {
+            "api": "/api",
+            "common": "/common",
+            "components": "/components",
+            "views": "/views",
+            "models": "/models",
+            "router":"/router"
+          }
+        }],
+        ["import", { "libraryName": "antd", "style": "css" }]
+      ]
+    },
+    "production": {
+      "extraBabelPlugins": [
+        "transform-runtime",
+        ["module-resolver", {
+          "root":["./src"],
+          "alias": {
+            "api": "/api",
+            "common": "/common",
+            "components": "/components",
+            "views": "/views",
+            "models": "/models",
+            "router":"/router"
+          }
+        }],
+        ["import", { "libraryName": "antd", "style": "css" }]
+      ]
+    }
+  }
+}
