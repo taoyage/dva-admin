@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'dva';
 import { Button, Row, Form } from 'antd';
 import { config } from 'common/js';
-import { Bform } from 'components/form';
+import { Bform } from 'base/form';
 import styles from './index.less';
 
 
@@ -43,6 +43,7 @@ const login = ({
     },
     form: { getFieldDecorator }
   };
+
   return (
     <div className={styles.form}>
       <div className={styles.logo}>

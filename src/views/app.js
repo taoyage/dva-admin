@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet';
 import { withRouter } from 'dva/router';
 import { connect } from 'dva';
 import pathToRegexp from 'path-to-regexp';
-import { Layout, Loader } from 'components';
+import { Layout, Loader } from 'base';
 import { config } from 'common/js';
 import 'common/styles/index.less';
 import './app.less';
@@ -86,7 +86,7 @@ const app = ({ appModel, children, location, loading, dispatch }) => {
   }
   return (
     <div>
-      <Loader fullScreen spinning={loading.effects['appModel/query']} />
+      <Loader fullScreen spinning={loading.effects['appModel/checkToken']} />
       <Helmet>
         <title>同余科技</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
