@@ -34,7 +34,9 @@
     "require-yield": [1],
     "space-before-function-paren": [1, "always"],
     "max-len": [0],//字符串最大长度
-    "guard-for-in": [0]
+    "guard-for-in": [0],
+    "no-unused-expressions": [0],
+    "no-lonely-if":[0]
   },
   "parserOptions": {
     "ecmaFeatures": {

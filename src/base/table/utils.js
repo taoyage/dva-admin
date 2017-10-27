@@ -1,15 +1,16 @@
-import moment from 'moment';
+// import moment from 'moment';
 
-const fieldTypes = {
-  normal: value => value
-};
+// const fieldTypes = {
+//   normal: value => value
+// };
 
-const _getFieldValue = (value, field) => {
-  console.log(value);
-  console.log(field);
-};
+// const _getFieldValue = (value, field) => {
+//   console.log(value);
+//   console.log(field);
+// };
 
 const getColumns = (fields, fieldKeys, extraFields) => {
+  console.log(extraFields);
   let columns = [];
   const transform = (_fields) => {
     return _fields.map(field => {

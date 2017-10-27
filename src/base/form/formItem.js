@@ -19,8 +19,9 @@ const DECORATOR_KEYS = ['trigger', 'valuePropName', 'getValueFromEvent', 'valida
  * @param keys
  */
 const pick = (obj, keys) => {
-  return keys.map(k => k in obj ? { [k]: obj[k] } : {})
-    .reduce((res, o) => Object.assign(res, o), {});
+  return keys.map(k => {
+    return k in obj ? { [k]: obj[k] } : {};
+  }).reduce((res, o) => Object.assign(res, o), {});
 };
 
 /**
@@ -32,7 +33,7 @@ const pick = (obj, keys) => {
 const extend = (dest = {}, source = {}) => {
   const result = Object.assign({}, dest);
   for (const key in source) {
-    if (source.hasOwnProperty(key) && source[key] !== undefined) {
+    if (source[key] !== undefined) {
       result[key] = source[key];
     }
   }
@@ -78,7 +79,6 @@ const BformItem = (props) => {
       {createFieldDecorator(fieldItem, dataItem, form.getFieldDecorator, placeholder, inputProps, decoratorOpts)}
     </FormItem>
   );
-
 };
 
 export default BformItem;

@@ -5,7 +5,6 @@ import { Table } from 'antd';
 import { getColumns } from './utils';
 
 const DataTable = ({ fields, ...props }) => {
-
   // const handleModal = (record) => {
   //   console.log(record);
   // };
