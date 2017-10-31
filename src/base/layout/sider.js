@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { config } from 'common/js';
 import { Icon, Switch } from 'antd';
-import logo from 'common/image/logo.png';
+// import logo from 'common/image/logo.png';
 import styles from './layout.less';
 
 import Menus from './menu';
@@ -19,7 +19,7 @@ const Sider = ({ siderFold, darkTheme, location, changeTheme, navOpenKeys, chang
   return (
     <div>
       <div className={styles.logo}>
-        <img alt={'logo'} src={logo} />
+        {/* <img alt={'logo'} src={logo} />*/}
         {siderFold ? '' : <span>{config.name}</span>}
       </div>
       <Menus {...menusProps} />
