@@ -42,7 +42,7 @@ export default {
         clearTimeout(tid);
         tid = setTimeout(() => {
           dispatch({ type: 'changeNavbar' });
-        }, 300);
+        }, 100);
       };
     }
   },
@@ -96,9 +96,9 @@ export default {
       }
     },
     * changeNavbar ({ payload }, { put, select }) {
-      const { app } = yield (select(_ => _));
+      const { appModel } = yield (select(_ => _));
       const isNavbar = document.body.clientWidth < 769;
-      if (isNavbar !== app.isNavbar) {
+      if (isNavbar !== appModel.isNavbar) {
         yield put({ type: 'handleNavbar', payload: isNavbar });
       }
     }
