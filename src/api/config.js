@@ -5,5 +5,8 @@ export default {
     login: `${prefix}/login`,
     logout: `${prefix}/logout`,
     tokens: `${prefix}/tokens`
+  },
+  document: {
+    template: `${prefix}/template`
   }
 };
