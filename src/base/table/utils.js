@@ -10,7 +10,7 @@
 // };
 
 const getColumns = (fields, fieldKeys, extraFields) => {
-  console.log(extraFields);
+  const chain = {};
   let columns = [];
   const transform = (_fields) => {
     return _fields.map(field => {
@@ -29,8 +29,44 @@ const getColumns = (fields, fieldKeys, extraFields) => {
       };
     });
   };
+
+  const enhance = (_extraFields) => {
+    if (!Array.isArray(_extraFields)) {
+      _extraFields = Object.keys(_extraFields).map(key => {
+        return Object.assign(_extraFields[key], { key });
+      });
+    }
+    _extraFields.forEach(extraField => {
+      const { dataIndex, title, key, name, ...others } = extraField;
+      extraField = {
+        dataIndex: key || dataIndex,
+        title: name || title,
+        ...others
+      };
+      const column = columns.find(item => item.dataIndex === extraField.dataIndex);
+      if (column) {
+        Object.assign(column, extraField);
+      } else {
+        columns.push(extraField);
+      }
+    });
+    return chain;
+  };
+
+  const values = () => {
+    return columns;
+  };
+
   columns = transform(fields);
-  return columns;
+
+  if (extraFields) {
+    enhance(extraFields);
+  }
+
+  return Object.assign(chain, {
+    values,
+    enhance
+  });
 };
 
 export default { getColumns };

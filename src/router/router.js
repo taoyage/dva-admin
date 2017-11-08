@@ -20,6 +20,10 @@ const Routers = ({ history, app }) => {
     path: '/product-list',
     models: () => [import('../models/issue/product-list')],
     component: () => import('../views/product-list')
+  }, {
+    path: '/template',
+    models: () => [import('../models/document/template')],
+    component: () => import('../views/document/template')
   }];
 
   return (

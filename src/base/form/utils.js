@@ -167,22 +167,40 @@ export const extendFieldsType = (extras) => {
 };
 
 /**
- * 转换field数据结构为map,使用formItem时使用
+ * 工具函数
  * @param originFields
  * @returns {*}
  */
 export const getFields = (originFields) => {
   const chain = {};
-  const fields = [...originFields];
-
+  let fields = [...originFields];
+  /**
+   * 转换field数据结构为map,使用formItem时使用
+   * @returns {*}
+   */
   const toMapValues = () => {
     return fields.reduce((map, field) => {
       map[field.key] = field;
       return map;
     }, {});
   };
+  /**
+   * 排除字段
+   * @param keys
+   */
+  const excludes = (keys) => {
+    keys = [].concat(keys);
+    fields = fields.filter(field => !keys.includes(field.key));
+    return chain;
+  };
+
+  const values = () => {
+    return fields;
+  };
 
   return Object.assign(chain, {
-    toMapValues
+    toMapValues,
+    excludes,
+    values
   });
 };
