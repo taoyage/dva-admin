@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DataTable from 'base/table/dataTable';
-import { Modal, message, Upload } from 'antd';
+import { Modal, Upload, message } from 'antd';
+import * as api from 'api/config';
 
 const confirm = Modal.confirm;
 
-const table = ({ fields, dataSource, pagination, queryTemplate, onDeleteItem, loading }) => {
+const table = ({ onDeleteItem, queryTemplate, ...tableProps }) => {
   /* 删除表格行 */
   const handleDelete = (record) => {
     confirm({
@@ -16,22 +17,34 @@ const table = ({ fields, dataSource, pagination, queryTemplate, onDeleteItem, lo
     });
   };
 
+  const uploadProps = {
+    name: 'file',
+    action: api.document.uploadFile,
+    headers: { authorization: `Bearer ${localStorage.getItem('token')}` },
+    showUploadList: false,
+    onChange(info) {
+      if (info.file.status === 'done') {
+        message.success(`${info.file.name}上传成功`);
+        queryTemplate();
+      } else if (info.file.status === 'error') {
+        message.error(`${info.file.name}上传失败, ${info.file.response.error}`);
+      }
+    }
+  };
+
   /* 表格属性 */
   const props = {
-    pagination,
-    fields,
-    dataSource,
-    loading,
+    ...tableProps,
     extraFields: [{
       key: 'operation',
       name: '操作',
       render: (text, record) => (
         <div>
-          <a href="">上传文件</a>
+          <Upload {...uploadProps} data={record}><a>上传文件</a></Upload>
           <span className="ant-divider"></span>
-          <a onClick={e => handleDelete(record)}>删除</a>
+          <a onClick={e => handleDelete(record, e)}>删除</a>
           <span className="ant-divider"></span>
-          <a href="">查看历史</a>
+          <a>查看历史</a>
         </div>
       )
     }]
@@ -47,7 +60,8 @@ table.PropTypes = {
   dataSource: PropTypes.array,
   pagination: PropTypes.object,
   queryTemplate: PropTypes.func,
-  onDeleteItem: PropTypes.func
+  onDeleteItem: PropTypes.func,
+  loading: PropTypes.func
 };
 
 export default table;

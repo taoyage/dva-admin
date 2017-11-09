@@ -1,6 +1,6 @@
 import modelExtend from 'dva-model-extend';
-import { model } from '../common';
 import { getTemplate, createTemplate, deleteTemplate } from 'api/document';
+import { model } from '../common';
 
 export default modelExtend(model, {
   namespace: 'templateModel',

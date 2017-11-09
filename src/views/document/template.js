@@ -45,7 +45,7 @@ const Template = ({ dispatch, loading, list, pagination }) => {
 };
 
 const mapStateToProps = (state) => {
-  const { list, pagination, visible } = state.templateModel;
+  const { list, pagination } = state.templateModel;
   return {
     loading: state.loading,
     list,

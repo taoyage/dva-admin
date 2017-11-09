@@ -7,6 +7,7 @@ export default {
     tokens: `${prefix}/tokens`
   },
   document: {
-    template: `${prefix}/template`
+    template: `${prefix}/template`,
+    uploadFile: `${prefix}/upload`
   }
 };

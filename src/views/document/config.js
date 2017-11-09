@@ -20,7 +20,9 @@ export const fields = [{
     default: '所有'
   },
   required: true,
-  render: text => text === 'default' ? <span>所有</span> : <span>{text}</span>
+  render: text => {
+    return text === 'default' ? <span>所有</span> : <span>{text}</span>;
+  }
 }, {
   key: 'put_call',
   name: '方向',
@@ -34,5 +36,7 @@ export const fields = [{
   key: 'status',
   name: '状态',
   required: true,
-  render: text => text ? <span>已上传</span> : <span>未上传</span>
+  render: text => {
+    return text ? <span>已上传</span> : <span>未上传</span>;
+  }
 }];
