@@ -1,3 +1,6 @@
 export default {
-  namespace: 'productListModel'
+  namespace: 'productListModel',
+  state: {
+    products: []
+  }
 };

@@ -29,11 +29,12 @@ const fieldTypes = {
    * DatePicker 默认格式
    * @param initialValue   初始值
    * @param inputProps     额外属性
+   * @param   meta  {size}   输入框大小
    * @returns {{input: XML, initialValue: (*|moment.Moment)}}
    */
-  date: ({ initialValue, inputProps }) => {
+  date: ({ meta = {}, initialValue, inputProps }) => {
     return {
-      input: <DatePicker {...inputProps} />,
+      input: <DatePicker {...inputProps} size={meta.size} />,
       initialValue: initialValue && moment(initialValue, dateFormat)
     };
   },
@@ -62,9 +63,10 @@ const fieldTypes = {
    * @param field         字段
    * @param placeholder
    * @param inputProps    额外值
+   * @param   meta  {size}   输入框大小
    * @returns {XML}
    */
-  enum: ({ field, placeholder, inputProps }) => {
+  enum: ({ meta = {}, field, placeholder, inputProps }) => {
     const enumsArray = Object.keys(field.enums).reduce((arr, key) => {
       arr.push({
         key,
@@ -74,7 +76,7 @@ const fieldTypes = {
     }, []);
     placeholder = placeholder === false ? '' : (placeholder || `请选择${field.name}`);
     return (
-      <Select placeholder={placeholder} {...inputProps} >
+      <Select placeholder={placeholder} {...inputProps} size={meta.size} style={{ width: '100%' }}>
         {enumsArray.map(item => <Option key={item.key}>{item.value}</Option>)}
       </Select>
     );

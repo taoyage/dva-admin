@@ -1,4 +1,17 @@
-const model = {
+import modelExtend from 'dva-model-extend';
+
+const formModel = {
+  reducers: {
+    updateState(state, { payload }) {
+      return {
+        ...state,
+        ...payload
+      };
+    }
+  }
+};
+
+const model = modelExtend(formModel, {
   state: {
     visible: false,
     list: [],
@@ -22,15 +35,11 @@ const model = {
         }
       };
     },
-    updateState(state, { payload }) {
-      return {
-        ...state,
-        ...payload
-      };
-    }
   }
-};
+});
+
 
 export default {
-  model
+  model,
+  formModel
 };

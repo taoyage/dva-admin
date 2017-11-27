@@ -23,7 +23,7 @@ const FormItem = Form.Item;
  * @returns {XML}
  * @constructor
  */
-const Bform = ({ fields, init, form, layout = {}, event = {}, ...others }) => {
+const Bform = ({ fields, init = {}, form, itemlayout = {}, event = {}, ...others }) => {
   return (
     <Form layout="horizontal" {...others}>
       {fields.map(field =>
@@ -31,7 +31,7 @@ const Bform = ({ fields, init, form, layout = {}, event = {}, ...others }) => {
           key={field.key}
           label={field.name}
           hasFeedback={field.hasFeedback === false ? field.hasFeedback : true}
-          {...layout}
+          {...itemlayout}
         >
           {createFieldDecorator(field, init, form.getFieldDecorator, field.placeholder, event[field.key])}
         </FormItem>)

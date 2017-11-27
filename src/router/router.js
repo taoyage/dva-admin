@@ -24,6 +24,10 @@ const Routers = ({ history, app }) => {
     path: '/template',
     models: () => [import('../models/document/template')],
     component: () => import('../views/document/template')
+  }, {
+    path: '/assets/option/:id',
+    models: () => [import('../models/assets/option')],
+    component: () => import('../views/assets/option')
   }];
 
   return (

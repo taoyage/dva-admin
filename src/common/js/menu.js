@@ -15,5 +15,57 @@ export default {
     icon: 'exception',
     name: '字典',
     route: '/dictionary'
+  }, {
+    id: '3',
+    icon: 'credit-card',
+    name: '资产管理'
+  }, {
+    id: '31',
+    mpid: '3',
+    bpid: '3',
+    icon: 'credit-card',
+    name: '期权'
+  }, {
+    id: '311',
+    mpid: '31',
+    bpid: '31',
+    icon: 'credit-card',
+    name: '普通欧式',
+    route: '/assets/option/european'
+  }, {
+    id: '312',
+    mpid: '31',
+    bpid: '31',
+    icon: 'credit-card',
+    name: '普通美式',
+    route: '/assets/option/american'
+  }, {
+    id: '313',
+    mpid: '31',
+    bpid: '31',
+    icon: 'credit-card',
+    name: '障碍敲出',
+    route: '/assets/option/knockout'
+  }, {
+    id: '314',
+    mpid: '31',
+    bpid: '31',
+    icon: 'credit-card',
+    name: '二元',
+    route: '/assets/option/digital'
+  }, {
+    id: '315',
+    mpid: '31',
+    bpid: '31',
+    icon: 'credit-card',
+    name: '价差',
+    route: '/assets/option/spread'
+  }, {
+    id: '316',
+    mpid: '31',
+    bpid: '31',
+    icon: 'credit-card',
+    name: '双鲨',
+    route: '/assets/option/doubleshark'
   }]
 };

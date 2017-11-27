@@ -58,7 +58,7 @@ class BModal extends React.Component {
           <Bform
             form={form}
             fields={fields}
-            layout={{ labelCol: { span: 6 }, wrapperCol: { span: 14 } }}
+            itemlayout={{ labelCol: { span: 6 }, wrapperCol: { span: 14 } }}
           />
         </Modal>
       </div>
