@@ -34,7 +34,7 @@ const model = modelExtend(formModel, {
           ...pagination
         }
       };
-    },
+    }
   }
 });
 

@@ -5,7 +5,7 @@ import { Bform } from 'base/form';
 // let path = window.location.href;
 
 
-const optionform = ({ optionFields, form: { getFieldDecorator, validateFieldsAndScroll, resetFields } }) => {
+const optionform = ({ optionFields, form: { getFieldDecorator, validateFieldsAndScroll } }) => {
   // const currentPath = window.location.href;
   // if (currentPath !== path) {
   //   path = currentPath;
